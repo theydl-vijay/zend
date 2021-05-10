@@ -1,0 +1,276 @@
+body {
+    margin: 0px auto;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 16px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+    transition: all 0.5s;
+    color: #bec9d1
+}
+
+li {
+    list-style-type: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 300;
+}
+
+.navbar-toggler:focus,
+.form-select:focus,
+.form-control:focus {
+    box-shadow: none;
+}
+
+.form-control {
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.btn:focus {
+    box-shadow: none;
+}
+
+
+
+
+
+/*------------header-------------*/
+
+.header {
+    height: auto;
+    width: 100%;
+    position: relative;
+    background: rgb(37, 56, 93);
+    background: linear-gradient(180deg, rgba(37, 56, 93, 1) 78%, rgba(247, 247, 247, 1) 71%);
+}
+
+.img_logo {
+    width: 10rem;
+}
+
+.user_icon {
+    width: 4%;
+    height: 4%;
+}
+
+.nav_menu {
+    background-color: rgba(118, 108, 175, 0.2);
+}
+
+.nav_text {
+    font-size: 0.8rem;
+    color: #ffffff;
+}
+
+.second_breadcrumb {
+    display: none;
+}
+
+.bread_cat {
+    font-size: 0.9rem;
+    color: #8a8686;
+}
+
+.cat_id {
+    font-size: 0.7rem
+}
+
+.fas,
+.bread_crumb,
+.bread_crumb a {
+    color: #8a8686;
+    font-size: 0.9rem;
+}
+
+.input_div {
+    height: auto;
+    width: 100%;
+    position: relative;
+    padding: 50px 0 20px 0;
+    background-color: rgba(247, 247, 247, 1);
+}
+
+.featured_inp {
+    margin-top: -3rem;
+}
+
+.footer,
+.form-label {
+    color: #8a8686;
+    font-size: 0.9rem;
+    /*font-weight: 600;*/
+}
+
+.meta_img {
+    font-size: 12px;
+}
+
+.list_header {
+    height: auto;
+    width: 100%;
+    position: relative;
+    background: rgb(37, 56, 93);
+    background: linear-gradient(180deg, rgba(37, 56, 93, 1) 85%, rgba(247, 247, 247, 1) 71%);
+}
+
+
+/*==================================*/
+
+.active_list {
+    height: auto;
+    width: 100%;
+    position: relative;
+    padding: 20px 0 30px 0;
+    background-color: rgba(247, 247, 247, 1);
+}
+
+.row_count {
+    color: #8a8686;
+    font-size: 0.9rem;
+    position: relative;
+    top: 10px;
+}
+.icn {
+    margin-top: 1px;
+}
+
+.tab_icn {
+    background-color: rgba(247, 247, 247, 1);
+}
+
+.th_name {
+    font-size: 0.9rem;
+    color: #000;
+}
+
+.td_name {
+    font-size: 0.8rem;
+    color: rgb(73, 72, 72);
+}
+
+.tab_nav {
+    flex-wrap: nowrap;
+    border-bottom: 0;
+}
+
+.nav_links {
+    padding: .3rem 0.5rem;
+}
+
+.tab_nav_link {
+    font-size: 0.9rem;
+    color: #383434;
+}
+
+.badge {
+    padding: 0.3em 0.5em;
+    background-color: #e2e1e1;
+}
+
+.bsc{
+    background-color: #4cbb17;
+    color: #fff;
+}
+
+.bsc:hover {
+    color: #4cbb17;
+    border-color: #4cbb17;
+    background-color: transparent;
+
+}
+
+.btl {
+    color: #4cbb17;
+    border-color: #4cbb17;
+}
+
+.btl:hover {
+    color: #ffffff;
+    background-color: #4cbb17;
+}
+
+.page-link {
+    color: #26395E;
+    background-color: #fff;
+    border: 1px solid #e2e1e1;
+}
+
+.page-link:focus {
+    color: #ffffff;
+    background-color: #26395E;
+    box-shadow:none;
+}
+
+
+.dataTables_wrapper .dataTables_length, 
+.dataTables_wrapper .dataTables_filter, 
+.dataTables_wrapper .dataTables_info, 
+.dataTables_wrapper .dataTables_processing, 
+.dataTables_wrapper .dataTables_paginate {
+    display: none;
+}
+.table.dataTable {
+    border-collapse: collapse;
+    
+}
+
+tbody, td, tfoot, th, thead, tr {
+    border-color: #F7F7F7;
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    .img_logo {
+        width: 8rem;
+    }
+    .user_icon {
+        width: 17%;
+    }
+    .first_breadcrumb {
+        display: none;
+    }
+    .second_breadcrumb {
+        display: block;
+    }
+    .featured_inp {
+        margin-top: 0;
+    }
+}
+
+
+
+
+
+
+
+
+
+/*
+ <div class="row">
+                                <label class="col-auto ml-2 form-label form-label-lg mt-1">Displaying <strong>1-10</strong> of <strong>460</strong> </label>
+                                <div class="fill_num">
+                                    <select class="form-control form-control-sm num_sel">
+                                        <option selected>10</option>
+                                        <option value="1">25</option>
+                                        <option value="2">50</option>
+                                        <option value="3">100</option>
+                                    </select>
+                                </div>
+                                <div class="d-flex justify-content-around col-5 search">
+                                    <input class="form-control rounded-0" type="search" placeholder="Search" aria-label="Search">
+                                    <button class="btn btn-outline-success rounded-0" type="submit"><i class="text-gray-dark icn fas fa-search"></i></button>
+                                    <button class="btn btn-outline-success rounded-0" type="submit"><i class="text-gray-dark icn fas fa-times"></i></button>
+                                </div>
+                            </div>*/
