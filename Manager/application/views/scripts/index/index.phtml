@@ -1,350 +1,179 @@
-<!doctype html>
-<html lang="en">
-    <head>
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- Bootstrap CSS -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-        <!-- fontawesome -->
-        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-        <!-- select cdn -->
-        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-        <!-- custom css -->
-        <link rel="stylesheet" href="css/style.css">
-        <title>Arcedior : Input Field</title>
-    </head>
-    <body>
-        <div class="header">
-            <div class="container">
+                    <div class="container first_breadcrumb position-relative mt-4">
+                        <div class="jumbotron px-4 pt-3 pb-2 rounded bg-white shadow-sm">
+                            <div class="row">
+                                <div class="col-lg-6 col-6">
+                                    <p class="bread_cat"><strong>Edit Categories <small class="cat_id">(6059addf56cs5s4s54544ad)</small></strong></p>
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb bread_crumb">
+                                            <li><a href="#"><i class="fas fa-home"></i></a></li>
+                                            <li> <i class="fas fa-chevron-right mx-3"></i> <a href="#">Categories</a></li>
+                                            <li> <i class="fas fa-chevron-right mx-3"></i> Edit</li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                                <div class="col-lg-6 col-6">
+                                    <div class="form-check form-switch mt-lg-4" style="float: right">
+                                        <label class="form-check-label" for="flexSwitchCheckDefault">Active</label>
+                                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container second_breadcrumb position-relative mt-4">
+                        <div class="jumbotron px-4 pt-3 pb-2 rounded bg-white shadow-sm">
+                            <div class="row">
+                                <div class="col-lg-6 col-6">
+                                    <p class="bread_cat"><strong>Edit Categories <small class="cat_id">(6059addf56cs5s4s54544ad)</small></strong></p>
+                                </div>
+                                <div class="col-lg-6 col-6">
+                                    <div class="form-check form-switch mt-lg-4" style="float: right">
+                                        <label class="form-check-label" for="flexSwitchCheckDefault">Active</label>
+                                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb bread_crumb text-center d-flex justify-content-center">
+                                            <li><a href="#"><i class="fas fa-home"></i></a></li>
+                                            <li> <i class="fas fa-chevron-right mx-3"></i> <a href="#">Categories</a></li>
+                                            <li> <i class="fas fa-chevron-right mx-3"></i> Edit</li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="input_div">
+    <div class="container">
+        <div class="jumbotron bg-white shadow-sm py-3 px-3 rounded">
+            <form>
                 <div class="row">
-                    <div class="col-md-6 col-6 my-3">
-                        <img src="img/logo.svg" class="img-fluid img_logo " alt="Arcedior">
-                    </div>
-                    <div class="col-md-6 col-6 my-3">
-                        <div class="d-flex justify-content-lg-end justify-content-around">
-                            <div class="btn-group">
-                                <button class="btn btn-sm dropdown-toggle text-white" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Masters
-                                </button>
-                                <ul class="dropdown-menu text-capitalize" aria-labelledby="dropdownMenuButton1">
-                                    <li><a class="dropdown-item" href="#">Hello</a></li>
-                                    <li><a class="dropdown-item" href="#">new projects</a></li>
-                                    <li><a class="dropdown-item" href="#">testing a new project</a></li>
-                                </ul>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label class="form-label">Image</label>
+                            <div class="input-group mb-3">
+                                <input type="file" class="form-control" id="inputGroupFile03" aria-describedby="inputGroupFileAddon03" aria-label="Upload">
                             </div>
-                            <i class="fas fa-expand text-white mx-lg-4 mt-2 mt-lg-1"></i>
-                            <img src="img/user_icon.svg" class="user_icon img-thumbnail img-fluid rounded rounded-circle">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="mb-3">
+                            <label class="form-label">Name * </label>
+                            <input type="text" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="mb-3">
+                            <label class="form-label">Slug *</label>
+                            <input type="text" class="form-control" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label class="form-label">Parent Category</label>
+                            <select class="form-select" aria-label="Default select example">
+                                <option value="1">hello</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label class="form-label "><i class="fas fa-info-circle mx-1"></i>Group Categories</label>
+                            <select class="form-control multiple-select" multiple>
+                                <option value="0">vijay</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <div class="mb-3">
+                                <label for="exampleFormControlTextarea1" class="form-label filter_sel">Filterable Attributes</label>
+                                <select class="form-control multiple-select" multiple>
+                                    <option value="0">vijay</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <div class="mb-3">
+                                <label for="exampleFormControlTextarea1" class="form-label"> Keywords <small class="text-danger">(Keywords must be in comma(,)seperated)</small></label>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row featured_inp">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="formFile" class="form-label">Featured Brands</label>
+                            <input class="form-control" type="file" id="formFile">
                         </div>
                     </div>
                 </div>
             </div>
-            <nav class="navbar navbar-expand-lg nav_menu">
-                <div class="container">
-                    <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-capitalize">
-                            <li class="nav-item ">
-                                <a class="nav-link nav_text" aria-current="page" href="#">Home</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link nav_text dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    brand
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                </ul>
-                            </li>
-                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                                <li class="nav-item">
-                                    <a class="nav-link nav_text" aria-current="page" href="#">categorise</a>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link nav_text dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        products
-                                    </a>
-                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <li><a class="dropdown-item" href="#">Action</a></li>
-                                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                                        <li><hr class="dropdown-divider"></li>
-                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    </ul>
-                                </li>
-                                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                                    <li class="nav-item">
-                                        <a class="nav-link nav_text" aria-current="page" href="#">projects</a>
-                                    </li>
-                                    <li class="nav-item dropdown">
-                                        <a class="nav-link nav_text dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            sites
-                                        </a>
-                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                            <li><a class="dropdown-item" href="#">Action</a></li>
-                                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                                            <li><hr class="dropdown-divider"></li>
-                                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="nav-item dropdown">
-                                        <a class="nav-link nav_text dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            forms
-                                        </a>
-                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                            <li><a class="dropdown-item" href="#">Action</a></li>
-                                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                                            <li><hr class="dropdown-divider"></li>
-                                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="nav-item dropdown">
-                                        <a class="nav-link nav_text dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            customers
-                                        </a>
-                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                            <li><a class="dropdown-item" href="#">Action</a></li>
-                                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                                            <li><hr class="dropdown-divider"></li>
-                                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link nav_text" aria-current="page" href="#">RFQs</a>
-                                    </li>
-                                    <li class="nav-item dropdown">
-                                        <a class="nav-link nav_text dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            project BOQs
-                                        </a>
-                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                            <li><a class="dropdown-item" href="#">Action</a></li>
-                                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                                            <li><hr class="dropdown-divider"></li>
-                                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="nav-item dropdown">
-                                        <a class="nav-link nav_text dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            reports
-                                        </a>
-                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                            <li><a class="dropdown-item" href="#">Action</a></li>
-                                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                                            <li><hr class="dropdown-divider"></li>
-                                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link nav_text" aria-current="page" href="#">cashe</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link nav_text" aria-current="page" href="#">orders</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link nav_text" aria-current="page" href="#">affiliate</a>
-                                    </li>
-                                </div>
-                            </nav>
-                            <div class="container first_breadcrumb position-relative mt-4">
-                                <div class="jumbotron px-4 pt-3 pb-2 rounded bg-white shadow-sm">
-                                    <div class="row">
-                                        <div class="col-lg-6 col-6">
-                                            <p class="bread_cat"><strong>Edit Categories <small class="cat_id">(6059addf56cs5s4s54544ad)</small></strong></p>
-                                            <nav aria-label="breadcrumb">
-                                                <ol class="breadcrumb bread_crumb">
-                                                    <li><a href="#"><i class="fas fa-home"></i></a></li>
-                                                    <li> <i class="fas fa-chevron-right mx-3"></i> <a href="#">Categories</a></li>
-                                                    <li> <i class="fas fa-chevron-right mx-3"></i> Edit</li>
-                                                </ol>
-                                            </nav>
-                                        </div>
-                                        <div class="col-lg-6 col-6">
-                                            <div class="form-check form-switch mt-lg-4" style="float: right">
-                                                <label class="form-check-label" for="flexSwitchCheckDefault">Active</label>
-                                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+        </form>
+        <div class="jumbotron shadow-sm bg-white py-3 my-3 my-lg-0 px-3 my-lg-5 rounded">
+            <span class="text-gray-dark">SEO</span>
+            <form>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label class="form-label">Meta Image <span class="meta_img"> it should be at least 600x300 pixels, but 1200x630 or larger is preferred (up to 5MB). stay close to a 1.91:1 aspect ratio to avoid cropping.</span></label>
+                            <div class="input-group mb-3">
+                                <input type="file" class="form-control" id="inputGroupFile03" aria-describedby="inputGroupFileAddon03" aria-label="Upload">
                             </div>
-                            <div class="container second_breadcrumb position-relative mt-4">
-                                <div class="jumbotron px-4 pt-3 pb-2 rounded bg-white shadow-sm">
-                                    <div class="row">
-                                        <div class="col-lg-6 col-6">
-                                            <p class="bread_cat"><strong>Edit Categories <small class="cat_id">(6059addf56cs5s4s54544ad)</small></strong></p>
-                                        </div>
-                                        <div class="col-lg-6 col-6">
-                                            <div class="form-check form-switch mt-lg-4" style="float: right">
-                                                <label class="form-check-label" for="flexSwitchCheckDefault">Active</label>
-                                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <nav aria-label="breadcrumb">
-                                                <ol class="breadcrumb bread_crumb text-center d-flex justify-content-center">
-                                                    <li><a href="#"><i class="fas fa-home"></i></a></li>
-                                                    <li> <i class="fas fa-chevron-right mx-3"></i> <a href="#">Categories</a></li>
-                                                    <li> <i class="fas fa-chevron-right mx-3"></i> Edit</li>
-                                                </ol>
-                                            </nav>
-                                        </div>
-                                    </div>
-                                </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label class="form-label">Meta Title</label>
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <div class="mb-3">
+                                <label class="form-label">Meta Description</label>
+                                <textarea class="form-control" rows="3"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <div class="mb-3">
+                                <label for="exampleFormControlTextarea1" class="form-label">Meta Keywords </label>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="input_div">
-            <div class="container">
-                <div class="jumbotron bg-white shadow-sm py-3 px-3 rounded">
-                    <form>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <label class="form-label">Image</label>
-                                    <div class="input-group mb-3">
-                                        <input type="file" class="form-control" id="inputGroupFile03" aria-describedby="inputGroupFileAddon03" aria-label="Upload">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="mb-3">
-                                    <label class="form-label">Name * </label>
-                                    <input type="text" class="form-control" required>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="mb-3">
-                                    <label class="form-label">Slug *</label>
-                                    <input type="text" class="form-control" required>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <label class="form-label">Parent Category</label>
-                                    <select class="form-select" aria-label="Default select example">
-                                        <option value="1">hello</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <label class="form-label "><i class="fas fa-info-circle mx-1"></i>Group Categories</label>
-                                    <select class="form-control multiple-select" multiple>
-                                        <option value="0">vijay</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <div class="mb-3">
-                                        <label for="exampleFormControlTextarea1" class="form-label filter_sel">Filterable Attributes</label>
-                                        <select class="form-control multiple-select" multiple>
-                                        <option value="0">vijay</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
-                                    </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <div class="mb-3">
-                                        <label for="exampleFormControlTextarea1" class="form-label"> Keywords <small class="text-danger">(Keywords must be in comma(,)seperated)</small></label>
-                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row featured_inp">
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <label for="formFile" class="form-label">Featured Brands</label>
-                                    <input class="form-control" type="file" id="formFile">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-                <div class="jumbotron shadow-sm bg-white py-3 my-3 my-lg-0 px-3 my-lg-5 rounded">
-                    <span class="text-gray-dark">SEO</span>
-                    <form>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <label class="form-label">Meta Image <span class="meta_img"> it should be at least 600x300 pixels, but 1200x630 or larger is preferred (up to 5MB). stay close to a 1.91:1 aspect ratio to avoid cropping.</span></label>
-                                    <div class="input-group mb-3">
-                                        <input type="file" class="form-control" id="inputGroupFile03" aria-describedby="inputGroupFileAddon03" aria-label="Upload">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <label class="form-label">Meta Title</label>
-                                    <input type="text" class="form-control">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <div class="mb-3">
-                                        <label class="form-label">Meta Description</label>
-                                        <textarea class="form-control" rows="3"></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <div class="mb-3">
-                                        <label for="exampleFormControlTextarea1" class="form-label">Meta Keywords </label>
-                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            
-            <div class="d-flex justify-content-center pt-3 py-lg-0">
-                <button type="button" class="btn bsc mx-1">Save Category</button>
-                <button type="button" class="btn btl mx-1">Back To List</button>
-            </div>
-        </div>
-        <footer class="pt-2">
-            <p class="text-center footer">2021 &copy;  Arcedior</p>
-        </footer>
-        <!-- Option 1: Bootstrap Bundle with Popper -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
-
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-
-        <!-- jquery -->
-        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-        <!-- select js -->
-        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-        <script>
-            $(".multiple-select").select2({
-
-            });
-        </script>
-    </body>
-</html>
+        </form>
+    </div>
+    
+    <div class="d-flex justify-content-center pt-3 py-lg-0">
+        <button type="button" class="btn bsc mx-1">Save Category</button>
+        <button type="button" class="btn btl mx-1">Back To List</button>
+    </div>
+</div>
