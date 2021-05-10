@@ -19,8 +19,8 @@ class UserController extends Zend_Controller_Action
 				
 				$session->user_id = $row["id"];
 				$session->user_name = $row["username"];
-
 				$session->node_user_name = $row['initial'];								
+
 				$_sets = array("user_id" => $row["id"],
 							"datetime" => date('Y-m-j H:i:s'),
 							"ip_address" => @$_SERVER["REMOTE_ADDR"],
