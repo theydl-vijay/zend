@@ -3,7 +3,7 @@
 	class IndexController extends Zend_Controller_Action {
 		public function indexAction() {		
 			$db = Zend_Db_Table::getDefaultAdapter();
-			// $this->view->nofooter;
+			$this->view->nofooter;
 
 			if (isset($_POST['submit'])) {
 
@@ -24,12 +24,10 @@
 					$_sets['meta_description'] = $data['meta_description'];
 					$_sets['meta_keywords'] = $data['meta_keywords'];
 		
-					$this->db->insert("arcedior-list", $_sets);
+					$this->db->insert("arcedior_list", $_sets);
 				}
 			}
+
 		}
-		
-
-
 	}
 ?>
