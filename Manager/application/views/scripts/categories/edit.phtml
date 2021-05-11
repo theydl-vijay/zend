@@ -80,9 +80,7 @@
                         <div class="mb-3">
                             <label class="form-label">Parent Category</label>
                             <select name="parent_category" class="form-select" aria-label="Default select example">
-                                <option value="hello">hello</option>
-                                <option value="Two">Two</option>
-                                <option value="Three">Three</option>
+                                <option><?php echo Core_WC_Dropdown::fill('m_categories') ?></option>
                             </select>
                         </div>
                     </div>
@@ -90,8 +88,8 @@
                         <div class="mb-3">
                             <label class="form-label "><i class="fas fa-info-circle mx-1"></i>Group Categories</label>
                             <select name="group_category" class="form-control multiple-select" multiple>
-                                <option></option>
-                                <?php Core_WC_Dropdown::fill('m_categories') ?>
+                                <option><?php echo Core_WC_Dropdown::fill('m_categories') ?></option>
+                                
                             </select>
                         </div>
                     </div>

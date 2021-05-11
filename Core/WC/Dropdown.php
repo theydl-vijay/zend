@@ -1,4 +1,4 @@
-<?
+<?php
 class Core_WC_Dropdown {
 	public function fill($table,$field="name",$id=0,$null_option="Select...",$wh=array(),$optgroup_by="",$debug=0,$distint=false,$return_array=false,$sql_order="",$disabled_cond="",$available_selected_one_item=true,$to_use_as_table_filter=false) {
 		if(is_array($null_option)) {
@@ -55,3 +55,4 @@ class Core_WC_Dropdown {
 		}
 	}
 }
+?>
