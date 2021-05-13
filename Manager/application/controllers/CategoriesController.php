@@ -56,6 +56,9 @@
 
 
 			// Pagination, Serach bar, Filter ===============================
+
+			$page_get = $this->getRequest()->getParam('page', '');
+
 			$page = 5;
 			$start = 0;
 			$running_page = 1;
