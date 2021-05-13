@@ -57,35 +57,38 @@
 
 			// Pagination, Serach bar, Filter ===============================
 
-			$page_get = $this->getRequest()->getParam('page', '');
+			$filter_opt = array(5, 10, 50, 100);
+			$this->view->filter_opt = $filter_opt;
 
 			$page = 5;
 			$start = 0;
 			$running_page = 1;
 
-			if (isset($page_get)) {
-				$start = $page_get;
-				$running_page = $start;
-				$start --;
-				$start = $start * $page;
+			if ($this->getRequest()->getParam('page', '')) {
+
+				$page_get = $this->getRequest()->getParam('page', '');
+				if (isset($page_get)) {
+					$start = $page_get;
+					$running_page = $start;
+					$start --;
+					$start = $start * $page;
+				}
 			}
 
-			$filter_opt = array(5, 10, 50, 100);
-			$this->view->filter_opt = $filter_opt; 
+			if ($this->getRequest()->getParam('search_box', '')) {
+				$search = $this->getRequest()->getParam('search_box', '');
+				if (isset($search)) {
 
-			if (isset($_GET['search_box'])) {
-				$search = $_GET['search_box'];
-				
-				// search-bar query ========================
-				$fetch_query = "SELECT * FROM arcedior_list WHERE name LIKE '%$search%' OR slug LIKE '%$search%' OR parent_category LIKE '%$search%' OR group_category LIKE '%$search%' OR filterable_attributes LIKE '%$search%' OR keywords LIKE '%$search%' OR meta_title LIKE '%$search%' OR meta_description LIKE '%$search%' OR meta_keywords LIKE '%$search%' ORDER BY id DESC LIMIT $start, $page";
+					// search-bar query ========================
+					$fetch_query = "SELECT * FROM arcedior_list WHERE name LIKE '%$search%' OR slug LIKE '%$search%' OR parent_category LIKE '%$search%' OR group_category LIKE '%$search%' OR filterable_attributes LIKE '%$search%' OR keywords LIKE '%$search%' OR meta_title LIKE '%$search%' OR meta_description LIKE '%$search%' OR meta_keywords LIKE '%$search%' ORDER BY id DESC LIMIT $start, $page";
 
-				//count-query ==========================
-				$count_query = "SELECT count(*) as count_id FROM arcedior_list WHERE name LIKE '%$search%'";
-				$pagi_link = "categories/index/search_box/$search&search_btn/&page/";	
+					//count-query ==========================
+					$count_query = "SELECT count(*) as count_id FROM arcedior_list WHERE name LIKE '%$search%'";
+					$pagi_link = "categories/index/search_box/$search&search_btn/&page/";	
+				}
 			}
 			else
 			{	
-	
 				$filter = $this->getRequest()->getParam('filter', '');
 				if ($filter) {
 					if ($filter == 5) {
@@ -119,7 +122,6 @@
 				}
 				else
 				{
-
 					// fetch query =================
 					$fetch_query = "SELECT * FROM arcedior_list ORDER BY id DESC LIMIT $start, $page";
 
