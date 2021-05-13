@@ -85,9 +85,6 @@ h6 {
     color: #8a8686;
 }
 
-.cat_id {
-    font-size: 0.7rem
-}
 
 .fas,
 .bread_crumb,
@@ -215,6 +212,10 @@ h6 {
     box-shadow:none;
 }
 
+.page-item.active .page-link {
+    background-color: #26395E;
+    border-color: #ffffff;
+}
 
 .dataTables_wrapper .dataTables_length, 
 .dataTables_wrapper .dataTables_filter, 

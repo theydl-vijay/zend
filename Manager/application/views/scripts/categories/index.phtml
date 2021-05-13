@@ -1,6 +1,11 @@
 <?php 
 
 $row = $this->row;
+$pagination = $this->pagination;
+$total_id = $this->total_id;
+$start = $this->start;
+$filter_opt = $this->filter_opt;
+$filter = $this->filter;
 
 ?>                            
                             <div class="container position-relative mt-4">
@@ -23,24 +28,27 @@ $row = $this->row;
                     <div class="row pb-3">
                         <div class="col-lg-6 col-md-6 col-6">
                             <div class="col-auto">
-                                    <p class="row_count">Displaying <strong>1-10</strong> of <strong>40</strong> </p>
+                                    <p class="row_count">Displaying <strong><?php echo $start ?></strong> of <strong><? echo $total_id; ?></strong></p>
                                 </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-6">
                             <div class="row">
                                 <div class="col-auto">
-                                    <select class="form-select" aria-label="Default select example">
-                                        <option value="1">1</option>
-                                        <option value="2">10</option>
-                                        <option value="3">25</option>
-                                        <option value="3">100</option>
-                                    </select>
+                                    <form method="get">
+                                        <select class="form-select" name="filter" onchange='if(this.value != 0) { this.form.submit(); }'>
+                                            <?php
+                                                foreach ($filter_opt as $fil_opt) {
+                                            ?>
+                                            <option value="<?php echo $fil_opt; ?>"<?= (isset($filter) && $filter == $fil_opt) ? 'selected':'' ?>><?php echo $fil_opt; ?></option>
+                                            <?php } ?>
+                                        </select>
+                                    </form>
                                 </div>
                                 <div class="col-auto">
                                     <form class="d-flex">
-                                        <input class="form-control me-1" type="search" placeholder="Search" aria-label="Search">
-                                        <button class="btn btn-outline-success text-gray-dark" type="submit"><i class="fas fa-search"></i></button>
-                                        <button class="btn btn-outline-success text-gray-dark" type="submit"><i class="fas fa-times"></i></button>
+                                        <input class="form-control me-1" type="search" name="search_box" value="<?php echo $search ?>" placeholder="Search" aria-label="Search">
+                                        <button class="btn btn-outline-success text-gray-dark" name="search_btn" type="submit"><i class="fas fa-search"></i></button>
+                                        <button class="btn btn-outline-success text-gray-dark" type="reset" value="reset"><i class="fas fa-times"></i></button>
                                     </form>
                                 </div>
                                 <div class="col-auto">
@@ -53,7 +61,8 @@ $row = $this->row;
                         <table class="table table-bordered " id="myTable">
                             <thead>
                                 <tr class="text-capitalize text-center">
-                                    <th scope="col"><span class="th_name">Image</span></th>
+                                    <th scope="col" style="width: 7rem"; ></th>
+                                    <th scope="col" style="width: 7rem"><span class="th_name">Image</span></th>
                                     <th scope="col"><span class="th_name">Name</span></th>
                                     <th scope="col"><span class="th_name">Slug</span></th>
                                     <th scope="col"><span class="th_name">Parent Category</span></th>
@@ -70,6 +79,7 @@ $row = $this->row;
                             <tbody>
                                 <?php
                                     foreach ($row as $rows) {
+                                    $id = $rows['id'];    
                                     $image = $rows['image'];
                                     $name = $rows['name'];
                                     $slug = $rows['slug'];
@@ -84,23 +94,38 @@ $row = $this->row;
                                     $meta_keywords = $rows['meta_keywords'];
                                 ?>
                                 <tr class="text-capitalize text-center">
-                                    <td><span class="td_name"> <?php echo "<img src='$image' class='w-100 img-fluid shadow rounded'>"?></span></td>
+                                    <td>
+                                        <div class="tab_icn rounded py-1 px-4 px-lg-0 d-flex justify-content-around">
+                                            <a href="categories/edit/id/<?php echo $id ?>"><i class="fas fa-pencil-alt"></i></a>
+                                            <a data-toggle="collapse" href="">
+                                                <i class="fas fa-plus mx-3"></i>
+                                            </a>
+                                            <a href=""> <i class="fas fa-sign-out-alt"></i></a>
+                                        </div>
+                                    </td>
+                                    <td><span class="td_name" > <?php echo "<img src='$image' class='w-100 img-fluid shadow rounded'>";?></span></td>
                                     <td><span class="td_name"> <?php echo $name; ?> </span></td>
                                     <td><span class="td_name"> <?php echo $slug; ?> </span></td>
                                     <td><span class="td_name"> <?php echo $parent_category; ?> </span></td>
                                     <td><span class="td_name"> <?php echo $group_category; ?> </span></td>
                                     <td><span class="td_name"> <?php echo $filterable_attributes; ?> </span></td>
                                     <td><span class="td_name"> <?php echo $keywords; ?> </span></td>
-                                    <td><span class="td_name"> <?php echo "<img src='$featured_brands' class='w-100 img-fluid shadow rounded'>"?></span></td>
-                                    <td><span class="td_name"> <?php echo "<img src='$meta_image' class='w-100 img-fluid shadow rounded'>"?></span></td>
+                                    <td><span class="td_name"> <?php echo "<img src='$featured_brands' class='w-100 img-fluid shadow rounded'>";?></span></td>
+                                    <td><span class="td_name"> <?php echo "<img src='$meta_image' class='w-100 img-fluid shadow rounded'>";?></span></td>
                                     <td><span class="td_name"> <?php echo $meta_title; ?> </span></td>
                                     <td><span class="td_name"> <?php echo $meta_description; ?> </span></td>
                                     <td><span class="td_name"> <?php echo $meta_keywords; ?> </span></td>
                                 </tr>
                             <?php } ?>
                             </tbody>
-
                         </table>
+                    </div>
+                    <div class="pt-4">
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination">
+                                <li class="page-item <?php echo $cur_page ?>"><?php echo $pagination; ?></li>
+                            </ul>
+                        </nav>
                     </div>
                 </div>
             </div>
