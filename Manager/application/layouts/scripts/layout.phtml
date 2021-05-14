@@ -221,7 +221,25 @@ $session = Core_WC_Session::get();
         $('#myTable').DataTable();
         } );
         </script>
-	</div>
+
+        <script>
+            
+            function getSelectedOptions(sel) {
+              var opts = [],
+                opt;
+              var len = sel.options.length;
+              for (var i = 0; i < len; i++) {
+                opt = sel.options[i];
+                if (opt.selected) {
+                  opts.push(opt);
+                location.replace("categories/index/perpage/"+opt.value);
+                }
+              }
+              return opts;
+            }
+        </script>
+
+       	</div>
 	<? } ?>
 <!-- END FOOTER -->
 </body>

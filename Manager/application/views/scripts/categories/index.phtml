@@ -5,7 +5,7 @@ $pagination = $this->pagination;
 $total_id = $this->total_id;
 $start = $this->start;
 $filter_opt = $this->filter_opt;
-$filter = $this->filter;
+$perpage = $this->perpage;
 
 ?>                            
                             <div class="container position-relative mt-4">
@@ -28,18 +28,18 @@ $filter = $this->filter;
                     <div class="row pb-3">
                         <div class="col-lg-6 col-md-6 col-6">
                             <div class="col-auto">
-                                    <p class="row_count">Displaying <strong><?php echo $start ?></strong> of <strong><? echo $total_id; ?></strong></p>
-                                </div>
+                                <p class="row_count">Displaying <strong> 0 to 0</strong> of <strong><? echo $total_id; ?></strong></p>
+                            </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-6">
                             <div class="row">
                                 <div class="col-auto">
                                     <form method="get">
-                                        <select class="form-select" name="filter" onchange='if(this.value != 0) { this.form.submit(); }'>
+                                        <select class="form-select" name="perpage" id="perpage" onChange="getSelectedOptions(this)">
                                             <?php
                                                 foreach ($filter_opt as $fil_opt) {
                                             ?>
-                                            <option value="<?php echo $fil_opt; ?>"<?= (isset($filter) && $filter == $fil_opt) ? 'selected':'' ?>><?php echo $fil_opt; ?></option>
+                                            <option value="<?php echo $fil_opt; ?>"<?= (isset($perpage) && $perpage == $fil_opt) ? 'selected':'' ?>><?php echo $fil_opt; ?></option>
                                             <?php } ?>
                                         </select>
                                     </form>
@@ -58,10 +58,11 @@ $filter = $this->filter;
                         </div>
                     </div>
                     <div class="table-responsive" >
-                        <table class="table table-bordered " id="myTable">
+                        <table class="table table-bordered">
                             <thead>
                                 <tr class="text-capitalize text-center">
-                                    <th scope="col" style="width: 7rem"; ></th>
+                                    <th scope="col"><span class="th_name">id</span></th>
+                                    <th scope="col" style="width: 7rem"; >#####</th>
                                     <th scope="col" style="width: 7rem"><span class="th_name">Image</span></th>
                                     <th scope="col"><span class="th_name">Name</span></th>
                                     <th scope="col"><span class="th_name">Slug</span></th>
@@ -94,6 +95,7 @@ $filter = $this->filter;
                                     $meta_keywords = $rows['meta_keywords'];
                                 ?>
                                 <tr class="text-capitalize text-center">
+                                    <td><span class="td_name"> <?php echo $id; ?> </span></td>
                                     <td>
                                         <div class="tab_icn rounded py-1 px-4 px-lg-0 d-flex justify-content-around">
                                             <a href="categories/edit/id/<?php echo $id ?>"><i class="fas fa-pencil-alt"></i></a>
@@ -130,4 +132,3 @@ $filter = $this->filter;
                 </div>
             </div>
         </div>
-       

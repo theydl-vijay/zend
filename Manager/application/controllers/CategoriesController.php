@@ -59,7 +59,7 @@
 
 			$filter_opt = array(5, 10, 50, 100);
 			$this->view->filter_opt = $filter_opt;
-
+			
 			$page = 5;
 			$start = 0;
 			$running_page = 1;
@@ -84,39 +84,39 @@
 
 					//count-query ==========================
 					$count_query = "SELECT count(*) as count_id FROM arcedior_list WHERE name LIKE '%$search%'";
-					$pagi_link = "categories/index/search_box/$search&search_btn/&page/";	
+					$pagi_link = "categories/index/search_box/$search&search_btn/";
 				}
 			}
 			else
 			{	
-				$filter = $this->getRequest()->getParam('filter', '');
-				if ($filter) {
-					if ($filter == 5) {
+				$perpage = $this->getRequest()->getParam('perpage', '');
+				if ($perpage) {
+					if ($perpage == 5) {
 						$page = 5;
 						$fetch_query = "SELECT * FROM arcedior_list ORDER BY id DESC LIMIT $start, $page";
 						$count_query = "SELECT count(*) as count_id FROM arcedior_list";
-						$pagi_link = 'categories/index/page/';	
+						$pagi_link = "categories/index/perpage/$perpage/page/";	
 
-					} elseif ($filter == 10) {
+					} elseif ($perpage == 10) {
 
 						$page = 10;
 						$fetch_query = "SELECT * FROM arcedior_list ORDER BY id DESC LIMIT $start, $page";
 						$count_query = "SELECT count(*) as count_id FROM arcedior_list";
-						$pagi_link = 'categories/index/page/';	
+						$pagi_link = "categories/index/perpage/$perpage/page/"; 
 	
-					} elseif ($filter == 50) {
+					} elseif ($perpage == 50) {
 						
 						$page = 50;
 						$fetch_query = "SELECT * FROM arcedior_list ORDER BY id DESC LIMIT $start, $page";
 						$count_query = "SELECT count(*) as count_id FROM arcedior_list";
-						$pagi_link = 'categories/index/page/';	
+						$pagi_link = "categories/index/perpage/$perpage/page/";	
 
-					} elseif ($filter == 100) {
+					} elseif ($perpage == 100) {
 						
 						$page = 100;
 						$fetch_query = "SELECT * FROM arcedior_list ORDER BY id DESC LIMIT $start, $page";
 						$count_query = "SELECT count(*) as count_id FROM arcedior_list";
-						$pagi_link = 'categories/index/page/';	
+						$pagi_link = "categories/index/perpage/$perpage/page/";	
 
 					}
 				}
@@ -131,6 +131,7 @@
 				}
 			}
 			$this->view->filter = $filter; 
+			$this->view->perpage = $perpage;
 
 			// fetch query & search-bar query run===============
 			$row = $db->fetchAll($fetch_query);

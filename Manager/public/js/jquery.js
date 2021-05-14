@@ -7,6 +7,4 @@ $(document).ready(function() {
       var slug = trims.replace(/a-z A-Z 0-9 -/, '-').replace(/-+/g, '-').replace(/^-|-$/g, '')
       $("#slug").val(slug.toLowerCase())
     });
-
-    // $(":reset");
 });
