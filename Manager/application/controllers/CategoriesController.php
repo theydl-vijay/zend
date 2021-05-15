@@ -1,5 +1,6 @@
 <?php
 	class CategoriesController extends Zend_Controller_Action {
+
 		public function editAction() {		
 			$db = Zend_Db_Table::getDefaultAdapter();
 			// $this->view->nofooter;
@@ -53,7 +54,6 @@
 
 		public function indexAction() {		
 			$db = Zend_Db_Table::getDefaultAdapter();
-
 
 			// Pagination, Serach bar, Filter ===============================
 

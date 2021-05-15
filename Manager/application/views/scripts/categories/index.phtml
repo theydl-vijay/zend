@@ -7,6 +7,14 @@ $start = $this->start;
 $filter_opt = $this->filter_opt;
 $perpage = $this->perpage;
 
+foreach ($row as $rows) {
+    $first_id = $rows['id'];
+    break;
+}
+foreach ($row as $rows) {
+    $last_id = $rows['id'];
+}
+
 ?>                            
                             <div class="container position-relative mt-4">
                                 <div class="jumbotron px-4 pt-3 rounded bg-white shadow-sm">
@@ -22,13 +30,14 @@ $perpage = $this->perpage;
                 </div>
             </div>
         </div>
+
         <div class="active_list">
             <div class="container">
                 <div class="jumbotron bg-white shadow-sm px-3 py-3 rounded">
                     <div class="row pb-3">
                         <div class="col-lg-6 col-md-6 col-6">
                             <div class="col-auto">
-                                <p class="row_count">Displaying <strong> 0 to 0</strong> of <strong><? echo $total_id; ?></strong></p>
+                                <p class="row_count">Displaying <strong> <?php echo $first_id;   ?> to <?php echo $last_id;?></strong> of <strong><? echo $total_id; ?></strong></p>
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-6">
@@ -94,6 +103,7 @@ $perpage = $this->perpage;
                                     $meta_description = $rows['meta_description'];
                                     $meta_keywords = $rows['meta_keywords'];
                                 ?>
+
                                 <tr class="text-capitalize text-center">
                                     <td><span class="td_name"> <?php echo $id; ?> </span></td>
                                     <td>
@@ -119,6 +129,7 @@ $perpage = $this->perpage;
                                     <td><span class="td_name"> <?php echo $meta_keywords; ?> </span></td>
                                 </tr>
                             <?php } ?>
+
                             </tbody>
                         </table>
                     </div>
