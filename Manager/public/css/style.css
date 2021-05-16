@@ -248,6 +248,9 @@ tbody, td, tfoot, th, thead, tr {
     .featured_inp {
         margin-top: 0;
     }
+    .row_count {
+        top: 0;
+    }
 }
 
 

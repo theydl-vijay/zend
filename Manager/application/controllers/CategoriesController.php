@@ -8,8 +8,8 @@
 			$id = $this->getRequest()->getParam('id', '');
    			$this->view->id = $id;
 
-			$filterable_attributes = array('vijay', 'test', 'demo', 'prectice');
-			$this->view->filterable_attributes = $filterable_attributes;
+			$filterable_attributes_ar = array('vijay', 'test', 'demo', 'prectice');
+			$this->view->filterable_attributes_ar = $filterable_attributes_ar;
 
 			if ($this->getRequest()->isPost()) {
 				$data = $this->_request->getPost();
@@ -48,9 +48,12 @@
 
 			$edit_data = "SELECT * FROM arcedior_list WHERE id='$id'";
 			$edit_row = $db->fetchAll($edit_data);
-
    			$this->view->edit_row = $edit_row;
+
+	 	    $post_filterable_attributes = $data['filterable_attributes'];
+   			$this->view->post_filterable_attributes = $post_filterable_attributes;
 		}
+
 
 		public function indexAction() {		
 			$db = Zend_Db_Table::getDefaultAdapter();
@@ -73,6 +76,7 @@
 					$start --;
 					$start = $start * $page;
 				}
+					$start;
 			}
 
 			if ($this->getRequest()->getParam('search_box', '')) {
@@ -100,13 +104,33 @@
 					} elseif ($perpage == 10) {
 
 						$page = 10;
+						if ($this->getRequest()->getParam('page', '')) {
+
+							$page_get = $this->getRequest()->getParam('page', '');
+							if (isset($page_get)) {
+								$start = $page_get;
+								$running_page = $start;
+								$start --;
+								$start = $start * $page;
+							}
+						}
 						$fetch_query = "SELECT * FROM arcedior_list ORDER BY id DESC LIMIT $start, $page";
-						$count_query = "SELECT count(*) as count_id FROM arcedior_list";
+						 $count_query = "SELECT count(*) as count_id FROM arcedior_list";
 						$pagi_link = "categories/index/perpage/$perpage/page/"; 
 	
 					} elseif ($perpage == 50) {
 						
 						$page = 50;
+						if ($this->getRequest()->getParam('page', '')) {
+
+							$page_get = $this->getRequest()->getParam('page', '');
+							if (isset($page_get)) {
+								$start = $page_get;
+								$running_page = $start;
+								$start --;
+								$start = $start * $page;
+							}
+						}
 						$fetch_query = "SELECT * FROM arcedior_list ORDER BY id DESC LIMIT $start, $page";
 						$count_query = "SELECT count(*) as count_id FROM arcedior_list";
 						$pagi_link = "categories/index/perpage/$perpage/page/";	
@@ -114,6 +138,16 @@
 					} elseif ($perpage == 100) {
 						
 						$page = 100;
+						if ($this->getRequest()->getParam('page', '')) {
+
+							$page_get = $this->getRequest()->getParam('page', '');
+							if (isset($page_get)) {
+								$start = $page_get;
+								$running_page = $start;
+								$start --;
+								$start = $start * $page;
+							}
+						}
 						$fetch_query = "SELECT * FROM arcedior_list ORDER BY id DESC LIMIT $start, $page";
 						$count_query = "SELECT count(*) as count_id FROM arcedior_list";
 						$pagi_link = "categories/index/perpage/$perpage/page/";	

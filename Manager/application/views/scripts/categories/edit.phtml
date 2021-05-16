@@ -2,8 +2,9 @@
 
 $id = $this->id;
 $edit_row = $this->edit_row;
-$filterable_attributes = $this->filterable_attributes;
+$filterable_attributes_ar = $this->filterable_attributes_ar;
 $filter = $this->filter;
+$post_filterable_attributes = $this->post_filterable_attributes;
 
 foreach ($edit_row as $edit_rows) {
         $image = $edit_rows['image'];
@@ -43,12 +44,12 @@ foreach ($edit_row as $edit_rows) {
                                 </div>
                             </div>
                             <div class="container second_breadcrumb position-relative mt-4">
-                                <div class="jumbotron px-4 pt-3 pb-2 rounded bg-white shadow-sm">
+                                <div class="jumbotron px-lg-4 px-3 pt-3 pb-2 rounded bg-white shadow-sm">
                                     <div class="row">
-                                        <div class="col-lg-6 col-6">
+                                        <div class="col-lg-7 col-8">
                                             <p class="bread_cat"><strong>Edit Categories <small class="cat_id"> { <?php echo $id;?> }</small></strong></p>
                                         </div>
-                                        <div class="col-lg-6 col-6">
+                                        <div class="col-lg-5 col-4">
                                             <div class="form-check form-switch mt-lg-4" style="float: right">
                                                 <label class="form-check-label" for="flexSwitchCheckDefault">Active</label>
                                                 <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
@@ -117,8 +118,8 @@ foreach ($edit_row as $edit_rows) {
                                                         <label for="exampleFormControlTextarea1" class="form-label filter_sel">Filterable Attributes</label>
                                                         <select value="" name="filterable_attributes" class="form-control multiple-select" multiple>
                                                              <?php
-                                                                foreach ($filterable_attributes as $fil_att) { ?>
-                                                                <option value="<?php echo $fil_att; ?>"><? echo $fil_att; ?></option>
+                                                                foreach ($filterable_attributes_ar as $fil_att) { ?>
+                                                                <option value="<?php echo $fil_att; ?>"<?=(isset($post_filterable_attributes)&&$post_filterable_attributes==$fil_att)?'selected':'' ?>><? echo $fil_att; ?></option>
                                                              <?php } ?>
                                                         </select>
                                                     </div>
