@@ -2,9 +2,7 @@
 
 $id = $this->id;
 $edit_row = $this->edit_row;
-$filterable_attributes_ar = $this->filterable_attributes_ar;
 $filter = $this->filter;
-$post_filterable_attributes = $this->post_filterable_attributes;
 
 foreach ($edit_row as $edit_rows) {
         $image = $edit_rows['image'];
@@ -98,7 +96,7 @@ foreach ($edit_row as $edit_rows) {
                                                 <div class="mb-3">
                                                     <label class="form-label">Parent Category</label>
                                                     <select  name="parent_category" class="form-select" value="<?php echo $parent_category; ?>"aria-label="Default select example">
-                                                        <option value="<?php echo $parent_category; ?>"><?php echo Core_WC_Dropdown::fill('m_categories') ?></option>
+                                                        <option value="<?php echo $parent_category; ?>"><?php echo Core_WC_Dropdown::fill('m_categories','name',$parent_category) ?></option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -106,7 +104,7 @@ foreach ($edit_row as $edit_rows) {
                                                 <div class="mb-3">
                                                     <label class="form-label "><i class="fas fa-info-circle mx-1"></i>Group Categories</label>
                                                     <select value="<?php echo $group_category; ?>" name="group_category" class="form-control multiple-select" multiple>
-                                                        <option><?php echo Core_WC_Dropdown::fill('m_categories') ?></option>
+                                                        <option><?php echo Core_WC_Dropdown::fill('m_categories', 'name', $group_category) ?></option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -115,13 +113,10 @@ foreach ($edit_row as $edit_rows) {
                                             <div class="col-md-6">
                                                 <div class="mb-3">
                                                     <div class="mb-3">
-                                                        <label for="exampleFormControlTextarea1" class="form-label filter_sel">Filterable Attributes</label>
-                                                        <select value="" name="filterable_attributes" class="form-control multiple-select" multiple>
-                                                             <?php
-                                                                foreach ($filterable_attributes_ar as $fil_att) { ?>
-                                                                <option value="<?php echo $fil_att; ?>"<?=(isset($post_filterable_attributes)&&$post_filterable_attributes==$fil_att)?'selected':'' ?>><? echo $fil_att; ?></option>
-                                                             <?php } ?>
-                                                        </select>
+                                                        <label class="form-label filter_sel">Filterable Attributes</label>
+                                                        <select value="<?php echo $filterable_attributes; ?>" name="filterable_attributes" class="form-control multiple-select" multiple>
+                                                        <option><?php echo Core_WC_Dropdown::fill('m_categories', 'name', $filterable_attributes) ?></option>
+                                                    </select>
                                                     </div>
                                                 </div>
                                             </div>
