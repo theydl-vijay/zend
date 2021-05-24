@@ -50,7 +50,6 @@
 		}
 
 // indexAction ***************************************************
-
 		public function indexAction() {		
 			$db = Zend_Db_Table::getDefaultAdapter();
 
@@ -73,9 +72,10 @@
 					$start = $start * $page;
 				}
 			}
-			$last_no = ($page - 0) * $running_page;
-			$first_no = ($start + 1) * $running_page;
 
+			$first_no = $start + 1;
+			$last_no = $page * $running_page;
+			
 			if ($this->getRequest()->getParam('search_box', '')) {
 				$search = $this->getRequest()->getParam('search_box', '');
 				if (isset($search)) {
@@ -94,10 +94,24 @@
 				if ($perpage) {
 					if ($perpage == 5) {
 						$page = 5;
+
+						if ($this->getRequest()->getParam('page', '')) {
+
+							$page_get = $this->getRequest()->getParam('page', '');
+							if (isset($page_get)) {
+								$start = $page_get;
+								$running_page = $start;
+								$start --;
+								$start = $start * $page;
+							}
+						}
+
 						$fetch_query = "SELECT * FROM arcedior_list ORDEBY id DESC LIMIT $start, $page";
 						$count_query = "SELECT count(*) as count_id FROM arcedior_list";
-						$pagi_link = "categories/index/perpage/$perpage/page/";	
+						$pagi_link = "categories/index/perpage/$perpage/page/";
+
 						$last_no = ($page - 0) * $running_page;
+						$first_no = $start + 1;
 
 					} elseif ($perpage == 10) {
 
@@ -113,7 +127,7 @@
 							}
 						}
 						$last_no = ($page - 0) * $running_page;
-						$first_no = ($start + 1) * $running_page;
+						$first_no = $start + 1;
 
 						$fetch_query = "SELECT * FROM arcedior_list ORDER BY id DESC LIMIT $start, $page";
 						$count_query = "SELECT count(*) as count_id FROM arcedior_list";
@@ -134,7 +148,7 @@
 							}
 						}
 						$last_no = ($page - 0) * $running_page;
-						$first_no = ($start + 1) * $running_page;
+						$first_no = $start + 1;
 
 						$fetch_query = "SELECT * FROM arcedior_list ORDER BY id DESC LIMIT $start, $page";
 						$count_query = "SELECT count(*) as count_id FROM arcedior_list";
@@ -154,7 +168,7 @@
 							}
 						}
 						$last_no = ($page - 0) * $running_page;
-						$first_no = ($start + 1) * $running_page;
+						$first_no = $start + 1;
 
 						$fetch_query = "SELECT * FROM arcedior_list ORDER BY id DESC LIMIT $start, $page";
 						$count_query = "SELECT count(*) as count_id FROM arcedior_list";
