@@ -40,8 +40,21 @@
 				$_sets['meta_title'] = $data['meta_title'];
 				$_sets['meta_description'] = $data['meta_description'];
 				$_sets['meta_keywords'] = $data['meta_keywords'];
-					
-				$this->db->insert("arcedior_list", $_sets);
+
+				if ($id) {
+					$where = "id=$id";
+					$update = $this->db->update("arcedior_list", $_sets , $where);	
+					if ($update) {
+						header('Location : categories/index');
+					}
+				}
+				else{
+					$insert = $this->db->insert("arcedior_list", $_sets);
+					if ($insert) {
+						header('Location : categories/index');
+					}
+				}
+				exit();
 			}
 
 			$edit_data = "SELECT * FROM arcedior_list WHERE id='$id'";
