@@ -86,9 +86,18 @@
 				}
 			}
 
+			$count_query = "SELECT count(*) as count_id FROM arcedior_list";
+			$count_raw = $db->fetchAll($count_query);
+			foreach ($count_raw as $id) {
+			 	$last_no = $id['count_id'];
+			}
+
 			$first_no = $start + 1;
-			$last_no = $page * $running_page;
+			$last_count = $page * $running_page;
+			if ($last_count > $last_no) {
+			}
 			
+
 			if ($this->getRequest()->getParam('search_box', '')) {
 				$search = $this->getRequest()->getParam('search_box', '');
 				if (isset($search)) {
@@ -123,8 +132,10 @@
 						$count_query = "SELECT count(*) as count_id FROM arcedior_list";
 						$pagi_link = "categories/index/perpage/$perpage/page/";
 
-						$last_no = ($page - 0) * $running_page;
 						$first_no = $start + 1;
+						$last_count = $page * $running_page;
+						if ($last_count > $last_no) {
+						}
 
 					} elseif ($perpage == 10) {
 
@@ -139,8 +150,10 @@
 								$start = $start * $page;
 							}
 						}
-						$last_no = ($page - 0) * $running_page;
 						$first_no = $start + 1;
+						$last_count = $page * $running_page;
+						if ($last_count > $last_no) {
+						}
 
 						$fetch_query = "SELECT * FROM arcedior_list ORDER BY id DESC LIMIT $start, $page";
 						$count_query = "SELECT count(*) as count_id FROM arcedior_list";
@@ -160,8 +173,11 @@
 								
 							}
 						}
-						$last_no = ($page - 0) * $running_page;
+						
 						$first_no = $start + 1;
+						$last_count = $page * $running_page;
+						if ($last_count > $last_no) {
+						}
 
 						$fetch_query = "SELECT * FROM arcedior_list ORDER BY id DESC LIMIT $start, $page";
 						$count_query = "SELECT count(*) as count_id FROM arcedior_list";
@@ -180,8 +196,11 @@
 								$start = $start * $page;
 							}
 						}
-						$last_no = ($page - 0) * $running_page;
+						
 						$first_no = $start + 1;
+						$last_count = $page * $running_page;
+						if ($last_count > $last_no) {
+						}
 
 						$fetch_query = "SELECT * FROM arcedior_list ORDER BY id DESC LIMIT $start, $page";
 						$count_query = "SELECT count(*) as count_id FROM arcedior_list";
