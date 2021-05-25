@@ -50,7 +50,18 @@
 				}
 				else{
 					$insert = $this->db->insert("arcedior_list", $_sets);
+
 					if ($insert) {
+						$to =  "lathiyav2810@gmail.com";
+						$to_name = "Vijay Lathiya";
+						$cc = "lathiyav2810@gmail.com";
+						$bcc = "lathiyav2810@gmaill.com";
+						$subject = "testing";
+						$body = "hello, this is testing";
+						$from = "vijay.webmavense@gmail.com";
+						$mail = Core_WC_PHPMailer::send($to,$to_name,$cc,$bcc,$subject,$body,$attachments=array("hello"),$from);
+						print_r($mail);
+						die();
 						header('Location : categories/index');
 					}
 				}
@@ -89,17 +100,22 @@
 			$count_query = "SELECT count(*) as count_id FROM arcedior_list";
 			$count_raw = $db->fetchAll($count_query);
 			foreach ($count_raw as $id) {
-			 	$last_no = $id['count_id'];
+			 	$count = $id['count_id'];
 			}
 
 			$first_no = $start + 1;
-			$last_count = $page * $running_page;
-			if ($last_count > $last_no) {
+			$last_no = $page * $running_page;
+			if ($last_no > $count) {
+				$last_no = $count;
 			}
-			
+			else
+			{
+				$last_no = $page * $running_page;
+			}
 
 			if ($this->getRequest()->getParam('search_box', '')) {
 				$search = $this->getRequest()->getParam('search_box', '');
+				$this->view->search = $search;
 				if (isset($search)) {
 
 					// search-bar query ========================
@@ -107,7 +123,22 @@
 
 					//count-query ==========================
 					$count_query = "SELECT count(*) as count_id FROM arcedior_list WHERE name LIKE '%$search%'";
-					$pagi_link = "categories/index/search_box/$search&search_btn/";
+					echo $pagi_link = "categories/index/page/1/search_box/$search&search_btn/";
+
+					$count_raw = $db->fetchAll($count_query);
+					foreach ($count_raw as $id) {
+					 	$count = $id['count_id'];
+					}
+
+					$first_no = $start + 1;
+					$last_no = $page * $running_page;
+					if ($last_no > $count) {
+						$last_no = $count;
+					}
+					else
+					{
+						$last_no = $page * $running_page;
+					}
 				}
 			}
 			else
@@ -133,8 +164,13 @@
 						$pagi_link = "categories/index/perpage/$perpage/page/";
 
 						$first_no = $start + 1;
-						$last_count = $page * $running_page;
-						if ($last_count > $last_no) {
+						$last_no = $page * $running_page;
+						if ($last_no > $count) {
+							$last_no = $count;
+						}
+						else
+						{
+							$last_no = $page * $running_page;
 						}
 
 					} elseif ($perpage == 10) {
@@ -150,9 +186,15 @@
 								$start = $start * $page;
 							}
 						}
+
 						$first_no = $start + 1;
-						$last_count = $page * $running_page;
-						if ($last_count > $last_no) {
+						$last_no = $page * $running_page;
+						if ($last_no > $count) {
+							$last_no = $count;
+						}
+						else
+						{
+							$last_no = $page * $running_page;
 						}
 
 						$fetch_query = "SELECT * FROM arcedior_list ORDER BY id DESC LIMIT $start, $page";
@@ -173,10 +215,15 @@
 								
 							}
 						}
-						
+
 						$first_no = $start + 1;
-						$last_count = $page * $running_page;
-						if ($last_count > $last_no) {
+						$last_no = $page * $running_page;
+						if ($last_no > $count) {
+							$last_no = $count;
+						}
+						else
+						{
+							$last_no = $page * $running_page;
 						}
 
 						$fetch_query = "SELECT * FROM arcedior_list ORDER BY id DESC LIMIT $start, $page";
@@ -198,8 +245,13 @@
 						}
 						
 						$first_no = $start + 1;
-						$last_count = $page * $running_page;
-						if ($last_count > $last_no) {
+						$last_no = $page * $running_page;
+						if ($last_no > $count) {
+							$last_no = $count;
+						}
+						else
+						{
+							$last_no = $page * $running_page;
 						}
 
 						$fetch_query = "SELECT * FROM arcedior_list ORDER BY id DESC LIMIT $start, $page";

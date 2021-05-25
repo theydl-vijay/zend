@@ -10,8 +10,7 @@ $(document).ready(function() {
 
     //reset btn for search-bar =========
 	$("#clear_btn").click(function() {
-		debugger;
 	    $("#form_id")[0].reset();
 	});
-
+  $(":reset");
 });

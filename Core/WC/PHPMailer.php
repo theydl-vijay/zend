@@ -11,8 +11,8 @@ class Core_WC_PHPMailer{
 		
 	}
 	function send($to,$to_name,$cc,$bcc,$subject,$body,$attachments=array(),$from="") {
-		//$config = Zend_Controller_Front::getInstance()->getParam('bootstrap');
-		//$smtp_config = $config->getOption("smtp");
+		// $config = Zend_Controller_Front::getInstance()->getParam('bootstrap');
+		$smtp_config = $config->getOption("smtp");
 		$smtp_config = Core_WC_Helpers::appRegistry("smtp");
 		//$bcc = "sh6logs@sawan.me";
 		

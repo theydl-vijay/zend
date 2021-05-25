@@ -1,4 +1,4 @@
-<?php 
+    <?php 
 
 $row = $this->row;
 $pagination = $this->pagination;
@@ -8,6 +8,7 @@ $filter_opt = $this->filter_opt;
 $perpage = $this->perpage;
 $first_no = $this->first_no;
 $last_no = $this->last_no;
+$search = $this->search;
 
 ?>                            
                             <div class="container position-relative mt-4">
@@ -54,10 +55,12 @@ $last_no = $this->last_no;
                                     </form>
                                 </div>
                                 <div class="col-auto">
-                                    <form class="d-flex">
-                                        <input class="form-control me-1" type="search" name="search_box" value="<?php echo $search ?>" placeholder="Search" aria-label="Search">
-                                        <button class="btn btn-outline-success text-gray-dark" name="search_btn" type="submit"><i class="fas fa-search"></i></button>
-                                        <button class="btn btn-outline-success text-gray-dark" id="clear_btn" type="clear" ><i class="fas fa-times"></i></button>
+                                    <form class="d-flex" action="categories/index/page/1/">
+                                        <input class="form-control me-1" type="search" name="search_box" value="<?php echo $search ?>" placeholder="Search" id="search" aria-label="Search">
+                                        
+                                        <button class="btn btn-outline-success text-gray-dark" name="search_btn" type="submit" id="search_btn"><i class="fas fa-search"></i></button>
+                                        
+                                        <button class="btn btn-outline-success text-gray-dark" id="clear_btn"  type="reset" value="reset" ><i class="fas fa-times"></i></button>
                                     </form>
                                 </div>
                                 <div class="col-auto">
@@ -91,9 +94,9 @@ $last_no = $this->last_no;
                                 
                                 <div class="col-auto">
                                     <form class="d-flex">
-                                        <input class="form-control me-1" type="search" name="search_box" value="<?php echo $search ?>" placeholder="Search" aria-label="Search">
-                                        <button class="btn btn-outline-success text-gray-dark" name="search_btn" type="submit"><i class="fas fa-search"></i></button>
-                                        <button class="btn btn-outline-success text-gray-dark" type="submit" ><i class="fas fa-times"></i></button>
+                                        <input class="form-control me-1" type="search" name="search_box" id="search_box" value="<?php echo $search ?>" placeholder="Search" aria-label="Search">
+                                        <button class="btn btn-outline-success text-gray-dark" name="search_btn" type="submit" onClick="location.replace('categories/index/page/1 + value');" ><i class="fas fa-search"></i></button>
+                                        <button class="btn btn-outline-success text-gray-dark" value="reset" type="reset" ><i class="fas fa-times"></i></button>
                                     </form>
                                 </div>
                                 <div class="col-auto">
