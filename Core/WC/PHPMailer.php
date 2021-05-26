@@ -12,7 +12,7 @@ class Core_WC_PHPMailer{
 	}
 	function send($to,$to_name,$cc,$bcc,$subject,$body,$attachments=array(),$from="") {
 		// $config = Zend_Controller_Front::getInstance()->getParam('bootstrap');
-		$smtp_config = $config->getOption("smtp");
+		// $smtp_config = $config->getOption("smtp");
 		$smtp_config = Core_WC_Helpers::appRegistry("smtp");
 		//$bcc = "sh6logs@sawan.me";
 		
@@ -42,13 +42,9 @@ class Core_WC_PHPMailer{
 		$mail->SetMessageType();
 		$mail->SMTPDebug=1;
 		$mail->IsHTML(true);
-		if($this->from){
-			$mail->From = $this->from_email;
-			$mail->FromName = $this->from;
-		}else{
-			$mail->From = $from;
-			$mail->FromName = $from;		
-		}
+
+		$mail->From = $from;
+		$mail->FromName = $from;		
 		
 		$mail->SMTPOptions = array(
 		'ssl' => array(
@@ -67,13 +63,10 @@ class Core_WC_PHPMailer{
 			$mail->SMTPAuth = true;     // turn on SMTP authentication
 			$mail->Username = $smtp_config->username;  // SMTP username
 			$mail->Password = $smtp_config->password; // SMTP password          
-			if(!$this->standardauth) $mail->SMTPSecure = "tls";
+			if($standardauth) $mail->SMTPSecure = "tls";
 		}
-//		print_r($mail);
-		if($this->log){
-			file_put_contents(APPLICATION_PATH."/../public/tmp/email_".date("Y_m_d_H_i_s").".txt", "To: $to_name <$to>\nSubject: $subject\nBdoy:\n$body");
-		}
-		
+		// print_r($mail);
+		if($log){file_put_contents(APPLICATION_PATH."/../public/tmp/email_".date("Y_m_d_H_i_s").".txt", "To: $to_name <$to>\nSubject: $subject\nBdoy:\n$body"); }
 		return $mail->Send();
 	}
 	public function getBody($view,$params){
@@ -252,7 +245,7 @@ class SMTP
    */
   function Authenticate($username, $password) {
     // Start authentication
-    fputs($this->smtp_conn,"AUTH LOGIN" . $this->CRLF);
+    echo fputs($this->smtp_conn,"AUTH LOGIN" . $this->CRLF);
 
     $rply = $this->get_lines();
     $code = substr($rply,0,3);
@@ -1731,7 +1724,8 @@ class PHPMailer {
     /* Retry while there is no connection */
     while($index < count($hosts) && $connection == false) {
       $hostinfo = array();
-      if(eregi('^(.+):([0-9]+)$', $hosts[$index], $hostinfo)) {
+      echo $hosts[$index]; 
+      if(preg_match("/^(.+):([0-9]+)$/", $hosts[$index], $hostinfo)) {
         $host = $hostinfo[1];
         $port = $hostinfo[2];
       } else {

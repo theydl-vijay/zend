@@ -113,8 +113,8 @@
 				$last_no = $page * $running_page;
 			}
 
-			if ($this->getRequest()->getParam('search_box', '')) {
-				$search = $this->getRequest()->getParam('search_box', '');
+			if ($this->getRequest()->getParam('search', '')) {
+				$search = $this->getRequest()->getParam('search', '');
 				$this->view->search = $search;
 				if (isset($search)) {
 
@@ -123,7 +123,7 @@
 
 					//count-query ==========================
 					$count_query = "SELECT count(*) as count_id FROM arcedior_list WHERE name LIKE '%$search%'";
-					echo $pagi_link = "categories/index/page/1/search_box/$search&search_btn/";
+					// echo $pagi_link = "categories/index/page/1/search/$search&search_btn/";
 
 					$count_raw = $db->fetchAll($count_query);
 					foreach ($count_raw as $id) {
