@@ -50,23 +50,23 @@ class Core_WC_PHPMailer{
 		'ssl' => array(
 		'verify_peer' => false,
 		'verify_peer_name' => false,
-		'allow_self_signed' => true
-		)
+		'allow_self_signed' => true)
 		);
 
 		$mail->Host = $smtp_config->servername;  // specify main and backup server
 		
 		$mail->Mailer = "smtp";
-		$mail->Port = $smtp_config->port?$smtp_config->port:465;
+		$mail->Port = $smtp_config->port?$smtp_config->port:587;
 		$mail->SMTPAuth = false;
 		if($smtp_config->username!="" && $smtp_config->password!=""){
 			$mail->SMTPAuth = true;     // turn on SMTP authentication
 			$mail->Username = $smtp_config->username;  // SMTP username
 			$mail->Password = $smtp_config->password; // SMTP password          
-			if($standardauth) $mail->SMTPSecure = "tls";
+			if($standardauth) $mail->SMTPSecure = "ssl";
 		}
-		// print_r($mail);
+		
 		if($log){file_put_contents(APPLICATION_PATH."/../public/tmp/email_".date("Y_m_d_H_i_s").".txt", "To: $to_name <$to>\nSubject: $subject\nBdoy:\n$body"); }
+        print_r($mail);
 		return $mail->Send();
 	}
 	public function getBody($view,$params){
@@ -245,13 +245,13 @@ class SMTP
    */
   function Authenticate($username, $password) {
     // Start authentication
-    echo fputs($this->smtp_conn,"AUTH LOGIN" . $this->CRLF);
+    fputs($this->smtp_conn,"AUTH LOGIN" . $this->CRLF);
 
     $rply = $this->get_lines();
     $code = substr($rply,0,3);
 
     if($code != 334) {
-      $this->error =
+    $this->error =
         array("error" => "AUTH not accepted from server",
               "smtp_code" => $code,
               "smtp_msg" => substr($rply,4));
@@ -1645,7 +1645,7 @@ class PHPMailer {
    * @return bool
    */
   function SmtpSend($header, $body) {
-    //include_once($this->PluginDir . 'class.smtp.php');
+    // include_once($this->PluginDir . 'class.smtp.php');
     $error = '';
     $bad_rcpt = array();
 
@@ -1724,7 +1724,6 @@ class PHPMailer {
     /* Retry while there is no connection */
     while($index < count($hosts) && $connection == false) {
       $hostinfo = array();
-      echo $hosts[$index]; 
       if(preg_match("/^(.+):([0-9]+)$/", $hosts[$index], $hostinfo)) {
         $host = $hostinfo[1];
         $port = $hostinfo[2];
