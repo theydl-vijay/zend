@@ -52,14 +52,9 @@
 					$insert = $this->db->insert("arcedior_list", $_sets);
 
 					if ($insert) {
-						$to =  "lathiyav2810@gmail.com";
-						$to_name = "Vijay Lathiya";
-						$cc = "lathiyav2810@gmail.com";
-						$bcc = "lathiyav2810@gmaill.com";
-						$subject = "testing";
-						$body = "hello, this is testing";
-						$from = "vijay.webmavense@gmail.com";
-						$mail = Core_WC_PHPMailer::send($to,$to_name,$cc,$bcc,$subject,$body,$attachments=array("hello"),$from);
+						$header =  "lathiyav2810@gmail.com";
+						$msg = "hello this is testing";
+						$mail = Core_WC_Mail::send_mail_actual($header , $msg);
 						print_r($mail);
 						die();
 						header('Location : categories/index');
