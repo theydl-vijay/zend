@@ -161,7 +161,6 @@ class SMTP
     $this->smtp_conn = 0;
     $this->error = null;
     $this->helo_rply = null;
-
     $this->do_debug = 0;
   }
 

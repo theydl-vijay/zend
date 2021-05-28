@@ -6,7 +6,7 @@
 			// $this->view->nofooter;
 			
 			$id = $this->getRequest()->getParam('id', '');
-   			$this->view->id = $id;
+			$this->view->id = $id;
 
 
 			if ($this->getRequest()->isPost()) {
@@ -52,7 +52,17 @@
 					$insert = $this->db->insert("arcedior_list", $_sets);
 
 					if ($insert) {
-						$header =  "lathiyav2810@gmail.com";
+						
+						// $to = "lathiyav2810@gmail.com";
+						// $to_name = "First email";
+						// $cc = "";
+						// $bcc = "";
+						// $subject = "Email Testing";
+						// $body = "hello, this is testing";
+						// $attachments=array("testing");
+						// $from = "vijay.webmavens@gmail.com";
+
+						$header = "lathiyav2810@gmail.com";
 						$msg = "hello this is testing";
 						$mail = Core_WC_Mail::send_mail_actual($header , $msg);
 						print_r($mail);
@@ -65,7 +75,7 @@
 
 			$edit_data = "SELECT * FROM arcedior_list WHERE id='$id'";
 			$edit_row = $db->fetchAll($edit_data);
-   			$this->view->edit_row = $edit_row;
+			$this->view->edit_row = $edit_row;
 		}
 
 // indexAction ***************************************************
@@ -95,7 +105,7 @@
 			$count_query = "SELECT count(*) as count_id FROM arcedior_list";
 			$count_raw = $db->fetchAll($count_query);
 			foreach ($count_raw as $id) {
-			 	$count = $id['count_id'];
+				$count = $id['count_id'];
 			}
 
 			$first_no = $start + 1;
@@ -122,7 +132,7 @@
 
 					$count_raw = $db->fetchAll($count_query);
 					foreach ($count_raw as $id) {
-					 	$count = $id['count_id'];
+						$count = $id['count_id'];
 					}
 
 					$first_no = $start + 1;
@@ -274,7 +284,7 @@
 			// count query run & pagination func. ===============
 			$count_raw = $db->fetchAll($count_query);
 			foreach ($count_raw as $id) {
-			 	$total_id = $id['count_id'];
+				$total_id = $id['count_id'];
 			}
 
 			$pagination = Core_WC_Pagination::pagination($total_id, $page, $page, $running_page, $pagi_link);
