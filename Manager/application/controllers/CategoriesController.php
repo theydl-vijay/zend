@@ -53,19 +53,10 @@
 
 					if ($insert) {
 						
-						// $to = "lathiyav2810@gmail.com";
-						// $to_name = "First email";
-						// $cc = "";
-						// $bcc = "";
-						// $subject = "Email Testing";
-						// $body = "hello, this is testing";
-						// $attachments=array("testing");
-						// $from = "vijay.webmavens@gmail.com";
-
 						$header = "lathiyav2810@gmail.com";
 						$msg = "hello this is testing";
 						$mail = Core_WC_Mail::send_mail_actual($header , $msg);
-						print_r($mail);
+						// print_r($mail);
 						die();
 						header('Location : categories/index');
 					}

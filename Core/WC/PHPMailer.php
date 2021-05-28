@@ -1,5 +1,6 @@
 <?php
 class Core_WC_PHPMailer{
+
 	var $from="";
 	var $from_email="";
 	private $log=1;
@@ -24,7 +25,7 @@ class Core_WC_PHPMailer{
 			$mail->AddAddress($t,$to_name);
 		}
 		if($cc) $mail->AddCC($cc);
-		if($bcc) $mail->AddBCC($bcc);
+		if($bcc) $mail->AddBCC($bcc); 
 		$mail->Subject=$subject;
 		$mail->Body = $body;
 		
