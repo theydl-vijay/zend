@@ -1,0 +1,185 @@
+<?php
+
+$id = $this->id;
+$edit_row = $this->edit_row;
+$filter = $this->filter;
+
+foreach ($edit_row as $edit_rows) {
+        $image = $edit_rows['image'];
+        $name = $edit_rows['name'];
+        $slug = $edit_rows['slug'];
+        $parent_category = $edit_rows['parent_category'];
+        $group_category = $edit_rows['group_category'];
+        $filterable_attributes = $edit_rows['filterable_attributes'];
+        $keywords = $edit_rows['keywords'];
+        $featured_brands = $edit_rows['featured_brands'];
+        $meta_image = $edit_rows['meta_image'];
+        $meta_title = $edit_rows['meta_title'];
+        $meta_description = $edit_rows['meta_description'];
+        $meta_keywords = $edit_rows['meta_keywords'];
+    }
+?>
+                            <div class="container first_breadcrumb position-relative mt-4">
+                                <div class="jumbotron px-4 pt-3 pb-2 rounded bg-white shadow-sm">
+                                    <div class="row">
+                                        <div class="col-lg-6 col-6">
+                                            <p class="bread_cat"><strong>Edit Categories <small class="text-dark"> <? if ($id) { echo "{ $id }"; } ?> </small></strong></p>
+                                            <nav aria-label="breadcrumb">
+                                                <ol class="breadcrumb bread_crumb">
+                                                    <li><a href="#"><i class="fas fa-home"></i></a></li>
+                                                    <li> <i class="fas fa-chevron-right mx-3"></i> <a href="categories/index">Categories</a></li>
+                                                    <li> <i class="fas fa-chevron-right mx-3"></i> Edit</li>
+                                                </ol>
+                                            </nav>
+                                        </div>
+                                        <div class="col-lg-6 col-6">
+                                            <div class="form-check form-switch mt-lg-4" style="float: right">
+                                                <label class="form-check-label" for="flexSwitchCheckDefault">Active</label>
+                                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container second_breadcrumb position-relative mt-4">
+                                <div class="jumbotron px-lg-4 px-3 pt-3 pb-2 rounded bg-white shadow-sm">
+                                    <div class="row">
+                                        <div class="col-lg-7 col-8">
+                                            <p class="bread_cat"><strong>Edit Categories <small class="cat_id"> { <?php echo $id;?> }</small></strong></p>
+                                        </div>
+                                        <div class="col-lg-5 col-4">
+                                            <div class="form-check form-switch mt-lg-4" style="float: right">
+                                                <label class="form-check-label" for="flexSwitchCheckDefault">Active</label>
+                                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <nav aria-label="breadcrumb">
+                                                <ol class="breadcrumb bread_crumb text-center d-flex justify-content-center">
+                                                    <li><a href="#"><i class="fas fa-home"></i></a></li>
+                                                    <li> <i class="fas fa-chevron-right mx-3"></i> <a href="#">Categories</a></li>
+                                                    <li> <i class="fas fa-chevron-right mx-3"></i> Edit</li>
+                                                </ol>
+                                            </nav>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input_div">
+                            <div class="container">
+                                <form method="post" enctype="multipart/form-data">
+                                    <div class="jumbotron bg-white shadow-sm py-3 px-3 rounded">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="">
+                                                    <label for="formFile" class="form-label">Image</label>
+                                                    <input type="file" name="image" class="form-control"  id="formFile">
+                                                    <div class="py-3"><?php echo "<img src='$image' class='w-25 img-fluid shadow rounded'>"?></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="">
+                                                    <label class="form-label">Name * </label>
+                                                    <input type="text" name="name" id="name" value="<?php echo $name; ?>" class="form-control" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="">
+                                                    <label class="form-label">Slug *</label>
+                                                    <input type="text" value="<?php echo $slug; ?>" name="slug" id="slug" class="form-control" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Parent Category</label>
+                                                    <select  name="parent_category" class="form-select" value="<?php echo $parent_category; ?>"aria-label="Default select example">
+                                                        <option value="<?php echo $parent_category; ?>"><?php echo Core_WC_Dropdown::fill('m_categories','name',$parent_category) ?></option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="mb-3">
+                                                    <label class="form-label "><i class="fas fa-info-circle mx-1"></i>Group Categories</label>
+                                                    <select value="<?php echo $group_category; ?>" name="group_category" class="form-control multiple-select" multiple>
+                                                        <option><?php echo Core_WC_Dropdown::fill('m_categories', 'name', $group_category) ?></option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="mb-3">
+                                                    <div class="mb-3">
+                                                        <label class="form-label filter_sel">Filterable Attributes</label>
+                                                        <select value="<?php echo $filterable_attributes; ?>" name="filterable_attributes" class="form-control multiple-select" multiple>
+                                                        <option><?php echo Core_WC_Dropdown::fill('m_categories', 'name', $filterable_attributes) ?></option>
+                                                    </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="mb-3">
+                                                    <div class="mb-3">
+                                                        <label for="exampleFormControlTextarea1" class="form-label"> Keywords <small class="text-danger">(Keywords must be in comma(,)seperated)</small></label>
+                                                        <textarea name="keywords" class="form-control" rows="4"><? echo $keywords; ?></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row featured_inp">
+                                            <div class="col-md-6">
+                                                <div class="mb-3">
+                                                    <label for="formFile" class="form-label">Featured Brands</label>
+                                                    <input type="file" name="featured_brands" class="form-control"  id="formFile">
+                                                    <div class="py-3"><?php echo "<img src='$featured_brands' class='w-25 img-fluid shadow rounded'>"?></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="jumbotron shadow-sm bg-white py-3 my-3 my-lg-0 px-3 my-lg-5 rounded">
+                                        <span class="text-gray-dark">SEO</span>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="">
+                                                   <label class="form-label">Meta Image <span class="meta_img"> it should be at least 600x300 pixels, but 1200x630 or larger is preferred (up to 5MB). stay close to a 1.91:1 aspect ratio to avoid cropping.</span></label>
+                                                    <input type="file" name="meta_image" class="form-control"  id="formFile">
+                                                    <div class="py-3"><?php echo "<img src='$meta_image' class='w-25 img-fluid shadow rounded'>"?></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="">
+                                                    <label class="form-label">Meta Title</label>
+                                                    <input type="text" value="<?php echo $meta_title; ?>" name="meta_title" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="mb-3">
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Meta Description</label>
+                                                        <textarea name="meta_description" class="form-control" rows="3"><? echo $meta_description; ?></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="mb-3">
+                                                    <div class="mb-3">
+                                                        <label for="exampleFormControlTextarea1" class="form-label">Meta Keywords </label>
+                                                        <textarea name="meta_keywords" class="form-control" id="exampleFormControlTextarea1" rows="3"><? echo $meta_keywords; ?></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex justify-content-center pt-3 py-lg-0">
+                                        <button type="submit"name="submit" class="btn bsc mx-1">Save Category</button></a>
+                                        <a href="categories/index" type="button" class="btn btl mx-1">Back To List</a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+        

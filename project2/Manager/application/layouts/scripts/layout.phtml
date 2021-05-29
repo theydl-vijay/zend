@@ -1,0 +1,241 @@
+<?php
+$current_controller = Zend_Controller_Front::getInstance()->getRequest()->getControllerName();
+$current_action = Zend_Controller_Front::getInstance()->getRequest()->getActionName();
+$session = Core_WC_Session::get();
+
+?>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <base href="http://localhost/zend/Manager/public/">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <meta content="" name="description"/>
+        <meta content="" name="author"/>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <!-- fontawesome -->
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+        <!-- select cdn -->
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+        <!-- custom css -->
+        <link rel="stylesheet" href="css/style.css">
+        <!-- datatables -->
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+        <title>Arcedior</title>
+    </head>
+    <!-- END HEAD -->
+    <!-- BEGIN BODY -->
+    <body class="<?= $current_controller.$current_action=="userlogin"?"login":"page-header-fixed page-full-width" ?>">
+
+	<!-- BEGIN CONTAINER -->
+	<div id="page_container" class="page-container" <?= $this->noheader?"style='margin-top:0px!important'":"" ?>>
+		<!-- BEGIN CONTENT -->
+		<div class="page-content-wrapper">
+			<div class="page-content">
+				<!-- BEGIN PAGE CONTENT-->
+				<div class='row'>
+                    <div class='col-md-12'><?=$this->SubMenu?>
+                    </div>
+                </div>
+				<div class="row">
+					<div class="col-md-12">
+                        <div class="header">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-6 col-6 my-3">
+                                        <img src="img/logo.svg" class="img-fluid img_logo " alt="Arcedior">
+                                    </div>
+                                    <div class="col-md-6 col-6 my-3">
+                                        <div class="d-flex justify-content-lg-end justify-content-around">
+                                            <div class="btn-group">
+                                                <button class="btn btn-sm dropdown-toggle text-white" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                Masters
+                                                </button>
+                                                <ul class="dropdown-menu text-capitalize" aria-labelledby="dropdownMenuButton1">
+                                                    <li><a class="dropdown-item" href="#">Hello</a></li>
+                                                    <li><a class="dropdown-item" href="#">new projects</a></li>
+                                                    <li><a class="dropdown-item" href="#">testing a new project</a></li>
+                                                </ul>
+                                            </div>
+                                            <i class="fas fa-expand text-white mx-lg-4 mt-2 mt-lg-1"></i>
+                                            <img src="img/user_icon.svg" class="user_icon img-thumbnail img-fluid rounded rounded-circle">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <nav class="navbar navbar-expand-lg nav_menu">
+                                <div class="container">
+                                    <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="navbar-toggler-icon"></span>
+                                    </button>
+                                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                        <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-capitalize">
+                                            <li class="nav-item ">
+                                                <a class="nav-link nav_text" aria-current="page" href="#">Home</a>
+                                            </li>
+                                            <li class="nav-item dropdown">
+                                                <a class="nav-link nav_text dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    brand
+                                                </a>
+                                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                                    <li><hr class="dropdown-divider"></li>
+                                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                                </ul>
+                                            </li>
+                                            <!-- </ul> -->
+                                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                                <li class="nav-item">
+                                                    <a class="nav-link nav_text" aria-current="page" href="#">categorise</a>
+                                                </li>
+                                                <li class="nav-item dropdown">
+                                                    <a class="nav-link nav_text dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        products
+                                                    </a>
+                                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                        <li><a class="dropdown-item" href="#">Action</a></li>
+                                                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                                                        <li><hr class="dropdown-divider"></li>
+                                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                                    </ul>
+                                                </li>
+                                                <!-- </ul> -->
+                                                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                                    <li class="nav-item">
+                                                        <a class="nav-link nav_text" aria-current="page" href="#">projects</a>
+                                                    </li>
+                                                    <li class="nav-item dropdown">
+                                                        <a class="nav-link nav_text dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                            sites
+                                                        </a>
+                                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                            <li><a class="dropdown-item" href="#">Action</a></li>
+                                                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                                                            <li><hr class="dropdown-divider"></li>
+                                                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="nav-item dropdown">
+                                                        <a class="nav-link nav_text dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                            forms
+                                                        </a>
+                                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                            <li><a class="dropdown-item" href="#">Action</a></li>
+                                                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                                                            <li><hr class="dropdown-divider"></li>
+                                                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="nav-item dropdown">
+                                                        <a class="nav-link nav_text dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                            customers
+                                                        </a>
+                                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                            <li><a class="dropdown-item" href="#">Action</a></li>
+                                                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                                                            <li><hr class="dropdown-divider"></li>
+                                                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link nav_text" aria-current="page" href="#">RFQs</a>
+                                                    </li>
+                                                    <li class="nav-item dropdown">
+                                                        <a class="nav-link nav_text dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                            project BOQs
+                                                        </a>
+                                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                            <li><a class="dropdown-item" href="#">Action</a></li>
+                                                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                                                            <li><hr class="dropdown-divider"></li>
+                                                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="nav-item dropdown">
+                                                        <a class="nav-link nav_text dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                            reports
+                                                        </a>
+                                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                            <li><a class="dropdown-item" href="#">Action</a></li>
+                                                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                                                            <li><hr class="dropdown-divider"></li>
+                                                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link nav_text" aria-current="page" href="#">cashe</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link nav_text" aria-current="page" href="#">orders</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link nav_text" aria-current="page" href="#">affiliate</a>
+                                                    </li>
+                                                </ul>
+                                            </ul>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </nav>
+<? echo $this->layout()->content; ?>
+			</div>
+				<!-- END PAGE CONTENT-->
+		      </div>
+		</div>
+		<!-- END CONTENT -->
+	</div>
+	<!-- END CONTAINER -->
+	<?
+	if(!$this->nofooter) { ?>
+	<!-- BEGIN FOOTER -->
+	<div class="page-footer">
+				<footer class="pt-2">
+            <p class="text-center footer">2021 &copy;  Arcedior</p>
+        </footer>
+        <!--== Bootstrap ==-->
+        <script type="text/javascript" src="bootstrap.min.js"></script>
+        <!--== jquery ==-->
+        <script type="text/javascript" src="js/jquery-3.6.0.js"></script>
+        <!--== manual js ==-->
+        <script type="text/javascript" src=js/jquery.js></script>
+        <!--== select js ==-->
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+        <script>
+        $(".multiple-select").select2({
+        });
+        </script>
+        <!-- datatables -->
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+        <script>
+        $(document).ready( function () {
+            $('#myTable').DataTable();
+        } );
+        </script>
+
+        <script>
+            function getSelectedOptions(sel) {
+              var opts = [],
+                opt; 
+              var len = sel.options.length;
+              for (var i = 0; i < len; i++) {
+                opt = sel.options[i];
+                if (opt.selected) {
+                  opts.push(opt);
+                location.replace("categories/index/perpage/"+opt.value);
+                }
+              }
+              return opts;
+            }
+        </script>
+       	</div>
+	<? } ?>
+<!-- END FOOTER -->
+</body>
+<!-- END BODY -->
+</html>
