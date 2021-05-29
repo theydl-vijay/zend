@@ -1,8 +1,0 @@
-DEF:root
-DENY UPDATE {
-
-}
-DENY DELETE {
-
-}
-
